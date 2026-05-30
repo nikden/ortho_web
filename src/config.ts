@@ -4,8 +4,8 @@ export const site = {
   title: "Хирург-ортодонт Смирнов А.И. | Москва",
   description:
     "Хирург-ортодонт Смирнов Александр Игоревич: брекеты, элайнеры, исправление прикуса и хирургическая ортодонтия в Москве.",
-  url: "https://smirnov-ortho.ru",
-  ogImage: "/og-image.svg",
+  url: "https://nikden.github.io/ortho_web/",
+  ogImage: "https://nikden.github.io/ortho_web/og-image.svg",
 };
 
 export const doctor = {

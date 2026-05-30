@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://smirnov-ortho.ru/sitemap.xml
+Sitemap: https://nikden.github.io/ortho_web/sitemap.xml
