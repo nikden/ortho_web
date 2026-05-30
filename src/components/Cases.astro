@@ -1,6 +1,9 @@
 ---
 import { Clock3 } from "@lucide/astro";
 import { cases } from "../config";
+
+const baseUrl = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const resolveImage = (path: string) => `${baseUrl}${path.replace(/^\//, "")}`;
 ---
 
 <section id="cases" class="section-padding bg-white" aria-labelledby="cases-title">
@@ -20,7 +23,7 @@ import { cases } from "../config";
         <article class="card overflow-hidden">
           <div class="relative h-64 overflow-hidden bg-slate-100">
             <img
-              src={item.image}
+              src={resolveImage(item.image)}
               width="900"
               height="650"
               loading="lazy"
