@@ -1,6 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-sans: Inter, Manrope, system-ui, sans-serif;
+  --color-clinic-blue: #0f5ea8;
+  --color-clinic-cyan: #0e7490;
+  --color-clinic-mint: #14b8a6;
+  --color-clinic-ink: #102033;
+  --color-clinic-soft: #f4f8fb;
+  --shadow-soft: 0 18px 50px rgba(15, 94, 168, 0.12);
+}
 
 :root {
   color-scheme: light;
