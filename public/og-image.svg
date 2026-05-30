@@ -4,9 +4,9 @@
   <circle cx="1010" cy="160" r="88" fill="#CCFBF1"/>
   <circle cx="940" cy="468" r="126" fill="#E0F2FE"/>
   <text x="120" y="210" fill="#0E7490" font-family="Arial, sans-serif" font-size="30" font-weight="700">Хирург-ортодонт</text>
-  <text x="120" y="300" fill="#102033" font-family="Arial, sans-serif" font-size="62" font-weight="700">Смирнов Александр</text>
-  <text x="120" y="372" fill="#102033" font-family="Arial, sans-serif" font-size="62" font-weight="700">Игоревич</text>
-  <text x="120" y="450" fill="#475569" font-family="Arial, sans-serif" font-size="30">Исправление прикуса, брекеты, элайнеры</text>
+  <text x="120" y="300" fill="#102033" font-family="Arial, sans-serif" font-size="62" font-weight="700">Станислав</text>
+  <text x="120" y="372" fill="#102033" font-family="Arial, sans-serif" font-size="62" font-weight="700">Маханов</text>
+  <text x="120" y="450" fill="#475569" font-family="Arial, sans-serif" font-size="30">Сделаю фарш из вашей челюсти и соберу обратно</text>
   <rect x="120" y="490" width="300" height="58" rx="12" fill="#14B8A6"/>
   <text x="152" y="528" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">Записаться на прием</text>
 </svg>
