@@ -1,0 +1,20 @@
+---
+import { contacts, doctor } from "../config";
+---
+
+<footer class="border-t border-slate-200 bg-slate-950 py-10 text-white">
+  <div class="container-page grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
+    <div>
+      <p class="text-lg font-semibold">{doctor.fullName}</p>
+      <p class="mt-2 max-w-3xl text-sm leading-6 text-slate-300">
+        Имеются противопоказания, необходима консультация специалиста. Информация на сайте не является публичной офертой.
+      </p>
+    </div>
+    <div class="grid gap-2 text-sm text-slate-300 md:text-right">
+      <a class="hover:text-white" href={contacts.phoneHref}>{contacts.phone}</a>
+      <a class="hover:text-white" href={contacts.emailHref}>{contacts.email}</a>
+      <a class="hover:text-white" href="#" aria-label="Политика конфиденциальности">Политика конфиденциальности</a>
+    </div>
+    <p class="text-xs text-slate-500 md:col-span-2">© 2026 {doctor.shortName}. Все права защищены.</p>
+  </div>
+</footer>

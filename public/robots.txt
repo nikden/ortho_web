@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://smirnov-ortho.ru/sitemap.xml

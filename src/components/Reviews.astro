@@ -1,0 +1,47 @@
+---
+import { Star } from "@lucide/astro";
+import { reviews } from "../config";
+---
+
+<section id="reviews" class="section-padding bg-clinic-soft" aria-labelledby="reviews-title">
+  <div class="container-page">
+    <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+      <div>
+        <p class="eyebrow">Отзывы пациентов</p>
+        <h2 id="reviews-title" class="section-title">Пациенты отмечают спокойное объяснение и точный план</h2>
+        <div class="mt-8 grid grid-cols-3 gap-3">
+          <div class="rounded-lg bg-white p-4 text-center shadow-sm">
+            <span class="block text-2xl font-semibold text-cyan-800">5.0</span>
+            <span class="text-xs text-slate-500">Яндекс</span>
+          </div>
+          <div class="rounded-lg bg-white p-4 text-center shadow-sm">
+            <span class="block text-2xl font-semibold text-cyan-800">4.9</span>
+            <span class="text-xs text-slate-500">2ГИС</span>
+          </div>
+          <div class="rounded-lg bg-white p-4 text-center shadow-sm">
+            <span class="block text-2xl font-semibold text-cyan-800">97%</span>
+            <span class="text-xs text-slate-500">рекомендаций</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid gap-5">
+        {reviews.map((review) => (
+          <article class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-semibold text-clinic-ink">{review.name}</h3>
+                <p class="text-sm text-slate-500">{review.source}</p>
+              </div>
+              <div class="flex items-center gap-1 rounded-full bg-teal-50 px-3 py-1 text-sm font-semibold text-teal-700">
+                <Star class="size-4 fill-current" aria-hidden="true" />
+                {review.rating}
+              </div>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-slate-600">“{review.text}”</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
