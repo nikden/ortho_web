@@ -1,5 +1,5 @@
 ---
-import { CalendarCheck, Menu, Phone } from "@lucide/astro";
+import { Menu, Phone } from "@lucide/astro";
 import { contacts, doctor, navItems } from "../config";
 ---
 
@@ -24,10 +24,6 @@ import { contacts, doctor, navItems } from "../config";
         <Phone class="size-4" aria-hidden="true" />
         {contacts.phone}
       </a>
-      <a class="btn-primary" href={contacts.booking} target="_blank" rel="noopener noreferrer">
-        <CalendarCheck class="size-4" aria-hidden="true" />
-        Записаться
-      </a>
     </div>
 
     <details class="group relative lg:hidden">
@@ -41,10 +37,6 @@ import { contacts, doctor, navItems } from "../config";
             <a class="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-cyan-50 hover:text-cyan-800" href={item.href}>{item.label}</a>
           ))}
         </nav>
-        <a class="btn-primary mt-4 w-full" href={contacts.booking} target="_blank" rel="noopener noreferrer">
-          <CalendarCheck class="size-4" aria-hidden="true" />
-          Записаться
-        </a>
       </div>
     </details>
   </div>

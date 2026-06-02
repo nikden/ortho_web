@@ -1,5 +1,5 @@
 ---
-import { Award, GraduationCap, ShieldCheck, Stethoscope } from "@lucide/astro";
+import { GraduationCap } from "@lucide/astro";
 import { certificates, doctor } from "../config";
 
 const baseUrl = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
@@ -7,47 +7,36 @@ const portraitImage = `${baseUrl}${doctor.portraitImage.replace(/^\//, "")}`;
 ---
 
 <section id="about" class="section-padding bg-white" aria-labelledby="about-title">
-  <div class="container-page grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-    <div class="overflow-hidden rounded-lg bg-clinic-soft shadow-soft">
+  <div class="container-page grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+    <div class="overflow-hidden rounded-lg bg-clinic-soft shadow-soft lg:sticky lg:top-28">
       <img
         src={portraitImage}
         width="900"
         height="1100"
         loading="lazy"
         alt="Портрет хирурга-ортодонта Станислава Маханова"
-        class="h-[520px] w-full object-cover"
+        class="h-[520px] w-full object-cover sm:h-[680px]"
       />
     </div>
 
     <div>
       <p class="eyebrow">О докторе</p>
       <h2 id="about-title" class="section-title">{doctor.fullName}</h2>
-      <p class="section-lead">
-        {doctor.role}. Работает на стыке ортодонтии, хирургии и цифрового планирования. Специализируется на сложных случаях, где важно не просто выровнять зубы, а восстановить функцию, эстетику и стабильность результата.
-      </p>
+      <div class="mt-4 text-xl font-medium leading-8 text-cyan-800">{doctor.role}</div>
 
-      <div class="mt-8 grid gap-4 sm:grid-cols-3">
-        <article class="rounded-lg bg-cyan-50 p-5">
-          <Stethoscope class="size-6 text-cyan-700" aria-hidden="true" />
-          <h3 class="mt-4 text-lg font-semibold text-clinic-ink">Индивидуальный план</h3>
-          <p class="mt-2 text-sm leading-6 text-slate-600">Диагностика учитывает сустав, профиль лица, состояние корней и пародонта.</p>
-        </article>
-        <article class="rounded-lg bg-teal-50 p-5">
-          <ShieldCheck class="size-6 text-teal-600" aria-hidden="true" />
-          <h3 class="mt-4 text-lg font-semibold text-clinic-ink">Безопасность</h3>
-          <p class="mt-2 text-sm leading-6 text-slate-600">Решения принимаются после анализа снимков, противопоказаний и медицинского анамнеза.</p>
-        </article>
-        <article class="rounded-lg bg-slate-50 p-5">
-          <Award class="size-6 text-blue-600" aria-hidden="true" />
-          <h3 class="mt-4 text-lg font-semibold text-clinic-ink">Контроль результата</h3>
-          <p class="mt-2 text-sm leading-6 text-slate-600">После лечения подбирается ретенция и график наблюдения.</p>
-        </article>
+      <div class="mt-8 grid gap-6 text-base leading-8 text-slate-700">
+        <p>
+          Работаю на стыке ортодонтии, хирургии и цифрового планирования. В сложных клинических ситуациях важно не только выровнять зубы, но и восстановить функцию, эстетику улыбки и стабильность результата.
+        </p>
+        <p>
+          На консультации подробно разбираю диагностику, объясняю варианты лечения и фиксирую понятный маршрут: от подготовки и выбора аппаратуры до контроля результата после завершения активного этапа.
+        </p>
       </div>
 
-      <div class="mt-10 rounded-lg border border-slate-200 p-6">
+      <div class="mt-12 rounded-lg border border-slate-200 p-6 sm:p-8">
         <div class="flex items-center gap-3">
           <GraduationCap class="size-6 text-cyan-700" aria-hidden="true" />
-          <h3 class="text-xl font-semibold text-clinic-ink">Образование и сертификаты</h3>
+          <h3 class="text-2xl font-semibold text-clinic-ink">Образование</h3>
         </div>
         <div class="mt-5 grid gap-3 sm:grid-cols-2">
           {certificates.map((certificate) => (

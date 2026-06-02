@@ -19,7 +19,7 @@ export const doctor = {
   address: "Москва, ул. Усачева, 29, корп. 1",
   workHours: "Пн-Сб, 09:00-20:00",
   heroImage: "/images/hero-clinic.svg",
-  portraitImage: "/images/doctor-stas.jpg",
+  portraitImage: "/images/dr_makhanov_about.png.webp",
 };
 
 export const contacts = {
@@ -29,14 +29,13 @@ export const contacts = {
   emailHref: "mailto:smirnov@orthocare.example",
   whatsapp: "https://wa.me/74951254872",
   telegram: "https://t.me/ortho_smirnov",
+  maxMessenger: "https://max.ru/",
   booking: "https://example.com/booking",
 };
 
 export const navItems = [
   { label: "О докторе", href: "#about" },
-  { label: "Услуги", href: "#services" },
-  { label: "Кейсы", href: "#cases" },
-  { label: "Отзывы", href: "#reviews" },
+  { label: "За работой", href: "#at-work" },
   { label: "Контакты", href: "#contacts" },
 ];
 
@@ -107,6 +106,21 @@ export const cases = [
     duration: "9 месяцев",
     result: "Стабилизирована окклюзия, закрыты промежутки, изготовлены ретейнеры.",
     image: "/images/case-aligners.svg",
+  },
+];
+
+export const atWork = [
+  {
+    image: "/images/dr_at_work_1.PNG",
+    alt: "Станислав Маханов во время работы в клинике",
+  },
+  {
+    image: "/images/dr_at_work_2.PNG",
+    alt: "Станислав Маханов за рабочим процессом",
+  },
+  {
+    image: "/images/dr_at_work_3.jpg",
+    alt: "Станислав Маханов во время приема пациента",
   },
 ];
 
