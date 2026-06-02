@@ -1,39 +1,39 @@
 ---
 import { Mail, MessageCircle, Phone, Send } from "@lucide/astro";
-import { contacts } from "../config";
+import { contactItems } from "../config";
+
+const contactIcons = {
+  phone: Phone,
+  telegram: Send,
+  message: MessageCircle,
+  mail: Mail,
+};
 ---
 
-<section id="contacts" class="section-padding bg-white" aria-labelledby="contacts-title">
+<section id="contacts" class="section-padding bg-clinic-soft" aria-labelledby="contacts-title">
   <div class="container-page">
     <p class="eyebrow">Контакты</p>
     <h2 id="contacts-title" class="section-title">Связаться с доктором</h2>
 
-    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-      <a class="flex min-h-28 flex-col justify-between rounded-lg border border-slate-200 p-5 transition hover:border-cyan-300 hover:bg-cyan-50" href={contacts.phoneHref}>
-        <Phone class="size-6 text-teal-500" aria-hidden="true" />
-        <span class="mt-6 text-sm text-slate-500">Мобильный</span>
-        <span class="mt-1 font-semibold text-clinic-ink">{contacts.phone}</span>
-      </a>
-      <a class="flex min-h-28 flex-col justify-between rounded-lg border border-slate-200 p-5 transition hover:border-cyan-300 hover:bg-cyan-50" href={contacts.telegram} target="_blank" rel="noopener noreferrer">
-        <Send class="size-6 text-teal-500" aria-hidden="true" />
-        <span class="mt-6 text-sm text-slate-500">Telegram</span>
-        <span class="mt-1 font-semibold text-clinic-ink">Написать</span>
-      </a>
-      <a class="flex min-h-28 flex-col justify-between rounded-lg border border-slate-200 p-5 transition hover:border-cyan-300 hover:bg-cyan-50" href={contacts.whatsapp} target="_blank" rel="noopener noreferrer">
-        <MessageCircle class="size-6 text-teal-500" aria-hidden="true" />
-        <span class="mt-6 text-sm text-slate-500">WhatsApp</span>
-        <span class="mt-1 font-semibold text-clinic-ink">Написать</span>
-      </a>
-      <a class="flex min-h-28 flex-col justify-between rounded-lg border border-slate-200 p-5 transition hover:border-cyan-300 hover:bg-cyan-50" href={contacts.maxMessenger} target="_blank" rel="noopener noreferrer">
-        <MessageCircle class="size-6 text-teal-500" aria-hidden="true" />
-        <span class="mt-6 text-sm text-slate-500">MAX</span>
-        <span class="mt-1 font-semibold text-clinic-ink">Написать</span>
-      </a>
-      <a class="flex min-h-28 flex-col justify-between rounded-lg border border-slate-200 p-5 transition hover:border-cyan-300 hover:bg-cyan-50" href={contacts.emailHref}>
-        <Mail class="size-6 text-teal-500" aria-hidden="true" />
-        <span class="mt-6 text-sm text-slate-500">Email</span>
-        <span class="mt-1 break-words font-semibold text-clinic-ink">{contacts.email}</span>
-      </a>
+    <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      {contactItems.map((item) => {
+        const Icon = contactIcons[item.icon];
+
+        return (
+          <a
+            class="flex items-center gap-3 rounded-lg border border-slate-200 p-3 transition hover:border-cyan-300 hover:bg-cyan-50"
+            href={item.href}
+            target={item.external ? "_blank" : undefined}
+            rel={item.external ? "noopener noreferrer" : undefined}
+          >
+            <Icon class="size-5 shrink-0 text-teal-500" aria-hidden="true" />
+            <span class="min-w-0">
+              <span class="block text-xs text-slate-500">{item.label}</span>
+              <span class:list={["block text-sm font-semibold text-clinic-ink", item.breakWords && "break-words"]}>{item.value}</span>
+            </span>
+          </a>
+        );
+      })}
     </div>
   </div>
 </section>
