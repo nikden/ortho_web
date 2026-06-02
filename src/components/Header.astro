@@ -1,12 +1,14 @@
 ---
+import { Image } from "astro:assets";
 import { Menu, Phone } from "@lucide/astro";
 import { contacts, doctor, navItems } from "../config";
+import logoImage from "../assets/images/tooth-implant.png";
 ---
 
 <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur">
   <div class="container-page flex min-h-[var(--header-height)] items-center justify-between gap-4">
     <a href="#" class="flex items-center gap-3" aria-label="На главную">
-      <img class="size-11 object-contain" src="/ortho_web/images/tooth-implant.png" alt="" width="48" height="48" aria-hidden="true" />
+      <Image class="size-11 object-contain" src={logoImage} alt="" width="48" height="48" aria-hidden="true" />
       <span class="leading-tight">
         <span class="block text-sm font-semibold text-clinic-ink sm:text-base">{doctor.shortName}</span>
         <span class="block text-xs text-slate-500">{doctor.role}</span>

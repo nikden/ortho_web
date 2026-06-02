@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { Clock3 } from "@lucide/astro";
 import { cases } from "../config";
 
@@ -22,7 +23,7 @@ const resolveImage = (path: string) => `${baseUrl}${path.replace(/^\//, "")}`;
       {cases.map((item) => (
         <article class="card overflow-hidden">
           <div class="relative h-64 overflow-hidden bg-slate-100">
-            <img
+            <Image
               src={resolveImage(item.image)}
               width="900"
               height="650"
