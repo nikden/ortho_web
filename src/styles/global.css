@@ -56,7 +56,7 @@ select {
   }
 
   .section-title {
-    @apply mt-3 text-3xl font-semibold tracking-normal text-clinic-ink sm:text-4xl lg:text-5xl;
+    @apply mt-3 text-2xl font-semibold tracking-normal text-clinic-ink sm:text-3xl lg:text-4xl;
   }
 
   .section-lead {
