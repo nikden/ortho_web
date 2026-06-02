@@ -1,6 +1,6 @@
 export const site = {
-  name: "Станислав Маханов",
-  specialty: "хирург-ортодонт",
+  name: "Маханов Станислав Александрович",
+  specialty: "врач стоматолог-хирург-имплантолог",
   title: "Хирург-ортодонт Станислав Маханов | Москва",
   description:
     "Хирург-ортодонт Станислав Маханов: брекеты, элайнеры, исправление прикуса и хирургическая ортодонтия в Москве.",
@@ -9,27 +9,27 @@ export const site = {
 };
 
 export const doctor = {
-  fullName: "Станислав Маханов",
+  fullName: "Маханов Станислав Александрович",
   shortName: "Доктор Маханов",
-  role: "Хирург-ортодонт, кандидат медицинских наук",
-  experience: "12 лет",
-  operations: "1 800+",
-  patients: "4 200+",
-  clinic: "Центр цифровой ортодонтии OrthoCare",
-  address: "Москва, ул. Усачева, 29, корп. 1",
+  role: "Стоматолог-хирург-имплантолог, кандидат медицинских наук",
+  experience: "23 год",
+  operations: "1 000+",
+  patients: "100 500",
+  clinic: "Центр Сам Себе Начальник",
+  address: "Москва, ул. Таганская",
   workHours: "Пн-Сб, 09:00-20:00",
   heroImage: "/images/hero-clinic.svg",
   portraitImage: "/images/dr_makhanov_about.png.webp",
 };
 
 export const contacts = {
-  phone: "+7 (495) 125-48-72",
-  phoneHref: "tel:+74951254872",
-  email: "smirnov@orthocare.example",
-  emailHref: "mailto:smirnov@orthocare.example",
-  whatsapp: "https://wa.me/74951254872",
-  telegram: "https://t.me/ortho_smirnov",
-  maxMessenger: "https://max.ru/",
+  phone: "+7 926 788-62-96",
+  phoneHref: "tel:+79267886296",
+  email: "stas-atas@lalaland.ru",
+  emailHref: "mailto:stas-atas@lalaland.ru",
+  whatsapp: "https://wa.me/79267886296",
+  telegram: "https://t.me/makhanovdentist",
+  maxMessenger: "https://max.ru/join/80i1BquwUhLi2s6JmfGyZZ97xMCTssZ5NcqqXXAEAvA",
   booking: "https://example.com/booking",
 };
 
@@ -82,10 +82,13 @@ export const services = [
 ];
 
 export const certificates = [
-  "МГМСУ им. А.И. Евдокимова, стоматологический факультет",
-  "Ординатура по ортодонтии, 2014-2016",
-  "Курс по хирургическому сопровождению ортодонтии, Vienna Dental School",
-  "Сертификат по работе с элайнерами и цифровым сетапом",
+  "2003г. - Медицинский колледж Белгородского государственного университета",
+  "2007г. - Центр последипломного образования работников здравоохранения ФМБА России",
+  "2008г. - Санкт-Петербургский государственный медицинский университет им. акад. И.П. Павлова",
+  "2009г. - Стоматологическая поликлиника №51 в Марьино, интернатура",
+  "2010г. - Московский государственный медико-стоматологический университет Евдокимова: стоматология хирургическая",
+  "2010г. - Российский университет дружбы народов (РУДН): стоматология ортопедическая",
+  "2018г. - Московский государственный медико-стоматологический университет Евдокимова: стоматология ортопедическая Повышение квалификации"
 ];
 
 export const cases = [
