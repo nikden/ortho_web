@@ -35,6 +35,7 @@ export const contacts = {
 
 export const navItems = [
   { label: "О докторе", href: "#about" },
+  { label: "Опыт", href: "#experience" },
   { label: "За работой", href: "#at-work" },
   { label: "Контакты", href: "#contacts" },
 ];
