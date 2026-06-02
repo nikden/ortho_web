@@ -25,25 +25,25 @@ const portraitImage = `${baseUrl}${doctor.portraitImage.replace(/^\//, "")}`;
         <h2 id="about-title" class="section-title">{doctor.fullName}</h2>
         <div class="mt-4 text-xl font-medium leading-8 text-cyan-800">{doctor.role}</div>
 
-        <div class="mt-8 grid gap-6 text-base leading-8 text-slate-700">
+        <div class="mt-6 grid gap-5 text-base leading-7 text-slate-700">
           <p>
             Нахожу эффективные методы лечения даже для самых непростых клинических случаев. В моей профессиональной деятельности я уделяю особое внимание не только высокому уровню квалификации, но и глубокому пониманию проблем, с которыми приходит пациент. Изучаю каждую деталь заболевания. Забота о пациенте на протяжении всего лечебного процесса, начиная с подготовки к операции и заканчивая завершением лечения, для меня имеет первостепенное значение.
           </p>
           <p>
-            На консультации подробно разбираю как разнести вашу челюсть в фарш и собрать обратно.
+            На консультации подробно разбираю как разнести вашу челюсть в фарш и собрать обратно, но красиво.
           </p>
         </div>
       </div>
     </div>
 
-    <div class="mt-12 rounded-lg border border-slate-200 p-6 sm:p-8">
+    <div class="mt-10 rounded-lg border border-slate-200 p-6 sm:p-5">
       <div class="flex items-center gap-3">
         <GraduationCap class="size-6 text-cyan-700" aria-hidden="true" />
         <h3 class="text-2xl font-semibold text-clinic-ink">Образование</h3>
       </div>
       <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {certificates.map((certificate) => (
-          <div class="rounded-md border border-slate-200 bg-white p-4 text-sm leading-6 text-slate-700">
+          <div class="rounded-md border border-slate-200 bg-white p-3 text-sm leading-5 text-slate-700">
             {certificate}
           </div>
         ))}
