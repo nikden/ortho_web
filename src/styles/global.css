@@ -2,9 +2,6 @@
 
 @theme {
   --font-sans: Inter, Manrope, system-ui, sans-serif;
-  --color-clinic-blue: #0f5ea8;
-  --color-clinic-cyan: #0e7490;
-  --color-clinic-mint: #14b8a6;
   --color-clinic-ink: #102033;
   --color-clinic-soft: #f4f8fb;
   --shadow-soft: 0 18px 50px rgba(15, 94, 168, 0.12);
@@ -57,14 +54,6 @@ select {
 
   .section-title {
     @apply mt-3 text-2xl font-semibold tracking-normal text-clinic-ink sm:text-3xl lg:text-4xl;
-  }
-
-  .section-lead {
-    @apply mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg;
-  }
-
-  .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-teal-500 px-5 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-teal-600 focus:outline-none focus:ring-4 focus:ring-teal-200;
   }
 
   .btn-secondary {
