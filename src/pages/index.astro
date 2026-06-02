@@ -1,14 +1,12 @@
 ---
 import "../styles/global.css";
 import About from "../components/About.astro";
-import Cases from "../components/Cases.astro";
+import AtWork from "../components/AtWork.astro";
 import ContactsFaq from "../components/ContactsFaq.astro";
+import ExperienceAchievements from "../components/ExperienceAchievements.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import Hero from "../components/Hero.astro";
-import Reviews from "../components/Reviews.astro";
-import Services from "../components/Services.astro";
-import { contacts, doctor, services, site } from "../config";
+import { contacts, doctor, site } from "../config";
 
 const canonicalUrl = site.url;
 const absoluteOgImage = new URL(site.ogImage, site.url).toString();
@@ -37,20 +35,6 @@ const jsonLd = {
       closes: "20:00",
     },
   ],
-  makesOffer: services.map((service) => ({
-    "@type": "Offer",
-    itemOffered: {
-      "@type": "MedicalProcedure",
-      name: service.title,
-      description: service.description,
-    },
-    priceCurrency: "RUB",
-    priceSpecification: {
-      "@type": "PriceSpecification",
-      priceCurrency: "RUB",
-      description: service.price,
-    },
-  })),
 };
 ---
 
@@ -79,11 +63,9 @@ const jsonLd = {
   <body>
     <Header />
     <main>
-      <Hero />
       <About />
-      <Services />
-      <Cases />
-      <Reviews />
+      <ExperienceAchievements />
+      <AtWork />
       <ContactsFaq />
     </main>
     <Footer />
