@@ -5,17 +5,17 @@ const baseUrl = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_UR
 const resolveImage = (path: string) => `${baseUrl}${path.replace(/^\//, "")}`;
 ---
 
-<section id="at-work" class="section-padding bg-clinic-soft" aria-labelledby="at-work-title">
+<section id="at-work" class="section-padding bg-white" aria-labelledby="at-work-title">
   <div class="container-page">
     <h2 id="at-work-title" class="section-title mt-0">За работой</h2>
 
-    <div class="mt-10 grid gap-6 lg:grid-cols-2">
+    <div class="mt-10 grid gap-5 md:grid-cols-3">
       {atWork.map((item) => (
         <article class="card overflow-hidden">
-          <div class="relative h-80 overflow-hidden bg-slate-100 sm:h-[480px]">
+          <div class="relative h-72 overflow-hidden bg-slate-100 sm:h-80 lg:h-96">
             <img
               src={resolveImage(item.image)}
-              width="900"
+              width="500"
               height="650"
               loading="lazy"
               alt={item.alt}
