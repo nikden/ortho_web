@@ -13,7 +13,7 @@ import { contacts, doctor } from "../config";
     <div class="grid gap-2 text-sm text-slate-300 md:text-right">
       <a class="hover:text-white" href={contacts.phoneHref}>{contacts.phone}</a>
       <a class="hover:text-white" href={contacts.emailHref}>{contacts.email}</a>
-      <a class="hover:text-white" href="#" aria-label="Политика конфиденциальности">Политика конфиденциальности</a>
+      <a class="hover:text-white" href={contacts.emailHref} aria-label="Политика конфиденциальности">Политика конфиденциальности</a>
     </div>
     <p class="text-xs text-slate-500 md:col-span-2">© 2026 {doctor.shortName}. Все права защищены.</p>
   </div>

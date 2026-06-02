@@ -1,8 +1,15 @@
 ---
+import { Image } from "astro:assets";
 import { atWork } from "../config";
+import atWork1Image from "../assets/images/dr_at_work_1.PNG";
+import atWork2Image from "../assets/images/dr_at_work_2.PNG";
+import atWork3Image from "../assets/images/dr_at_work_3.jpg";
 
-const baseUrl = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
-const resolveImage = (path: string) => `${baseUrl}${path.replace(/^\//, "")}`;
+const imageByPath = {
+  dr_at_work_1: atWork1Image,
+  dr_at_work_2: atWork2Image,
+  dr_at_work_3: atWork3Image,
+};
 ---
 
 <section id="at-work" class="section-padding bg-white" aria-labelledby="at-work-title">
@@ -13,10 +20,8 @@ const resolveImage = (path: string) => `${baseUrl}${path.replace(/^\//, "")}`;
       {atWork.map((item) => (
         <article class="card overflow-hidden">
           <div class="relative h-72 overflow-hidden bg-slate-100 sm:h-80 lg:h-96">
-            <img
-              src={resolveImage(item.image)}
-              width="500"
-              height="650"
+            <Image
+              src={imageByPath[item.image]}
               loading="lazy"
               alt={item.alt}
               class="h-full w-full object-cover transition duration-500 hover:scale-105"

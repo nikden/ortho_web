@@ -195,7 +195,7 @@ import { experienceAchievements } from "../config";
 <script>
   const carousels = document.querySelectorAll("[data-achievements-carousel]");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const autoScrollSpeed = 100;
+  const autoScrollSpeed = 50;
 
   carousels.forEach((carousel) => {
     const viewport = carousel.querySelector("[data-achievements-viewport]");
