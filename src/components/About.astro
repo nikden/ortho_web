@@ -11,7 +11,8 @@ import portraitImage from "../assets/images/dr_makhanov_about.png.webp";
       <div class="overflow-hidden rounded-lg bg-clinic-soft shadow-soft lg:sticky lg:top-28">
         <Image
           src={portraitImage}
-          loading="lazy"
+          loading="eager"
+          fetchpriority="high"
           alt="Портрет хирурга-ортодонта Станислава Маханова"
           class="h-[520px] w-full object-cover sm:h-[680px]"
         />
