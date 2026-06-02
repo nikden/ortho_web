@@ -195,6 +195,7 @@ import { experienceAchievements } from "../config";
 <script>
   const carousels = document.querySelectorAll("[data-achievements-carousel]");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const autoScrollSpeed = 100;
 
   carousels.forEach((carousel) => {
     const viewport = carousel.querySelector("[data-achievements-viewport]");
@@ -292,13 +293,16 @@ import { experienceAchievements } from "../config";
     viewport.addEventListener("pointerup", stopDragging);
     viewport.addEventListener("pointercancel", stopDragging);
     viewport.addEventListener("scroll", normalizeScroll);
-    viewport.addEventListener("mouseenter", pauseAutoScroll);
-    viewport.addEventListener("focusin", pauseAutoScroll);
 
     if (!reducedMotion) {
-      const animate = () => {
+      let lastFrameTime = performance.now();
+
+      const animate = (frameTime) => {
+        const elapsedSeconds = (frameTime - lastFrameTime) / 1000;
+        lastFrameTime = frameTime;
+
         if (!isDragging && performance.now() > autoPausedUntil) {
-          viewport.scrollLeft += 0.35;
+          viewport.scrollLeft += autoScrollSpeed * elapsedSeconds;
           normalizeScroll();
         }
 
