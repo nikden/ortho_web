@@ -33,6 +33,43 @@ export const contacts = {
   booking: "https://example.com/booking",
 };
 
+export const contactItems = [
+  {
+    icon: "phone",
+    label: "Мобильный",
+    value: contacts.phone,
+    href: contacts.phoneHref,
+  },
+  {
+    icon: "telegram",
+    label: "Telegram",
+    value: "Написать",
+    href: contacts.telegram,
+    external: true,
+  },
+  {
+    icon: "message",
+    label: "WhatsApp",
+    value: "Написать",
+    href: contacts.whatsapp,
+    external: true,
+  },
+  {
+    icon: "message",
+    label: "MAX",
+    value: "Написать",
+    href: contacts.maxMessenger,
+    external: true,
+  },
+  {
+    icon: "mail",
+    label: "Email",
+    value: contacts.email,
+    href: contacts.emailHref,
+    breakWords: true,
+  },
+] as const;
+
 export const navItems = [
   { label: "О докторе", href: "#about" },
   { label: "Опыт", href: "#experience" },
