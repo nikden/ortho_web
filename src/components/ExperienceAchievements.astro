@@ -1,10 +1,11 @@
 ---
+import { ChevronLeft, ChevronRight } from "@lucide/astro";
 import { experienceAchievements } from "../config";
 ---
 
 <section id="experience" class="section-padding bg-clinic-soft" aria-labelledby="experience-title">
   <div class="container-page">
-    <details class="group rounded-lg border border-slate-200 bg-white p-6 shadow-sm sm:p-4">
+    <details class="group rounded-lg border border-slate-200 bg-white p-6 shadow-sm sm:p-4" open>
       <summary class="flex cursor-pointer list-none items-center justify-between gap-6">
         <h2 id="experience-title" class="section-title mt-0">Опыт и достижения</h2>
         <span class="flex size-12 shrink-0 items-center justify-center rounded-lg border border-cyan-700/20 text-3xl font-light leading-none text-cyan-800 transition group-open:rotate-45" aria-hidden="true">
@@ -12,14 +13,303 @@ import { experienceAchievements } from "../config";
         </span>
       </summary>
 
-      <ul class="mt-6 grid gap-2 text-base leading-8 text-slate-700">
-        {experienceAchievements.map((item) => (
-          <li class="flex gap-2">
-            <span class="mt-3 size-2 shrink-0 rounded-full bg-teal-500" aria-hidden="true"></span>
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
+      <div class="achievements-shell mt-5" data-achievements-carousel>
+        <button class="achievement-nav achievement-nav-prev" type="button" aria-label="Показать предыдущие достижения" data-achievement-prev>
+          <ChevronLeft class="size-4" aria-hidden="true" />
+        </button>
+
+        <div class="achievements-carousel" aria-label="Список опыта и достижений" data-achievements-viewport>
+          <div class="achievements-track" data-achievements-track>
+            {[0, 1, 2].map((copyIndex) => (
+              <ul class="achievements-set" aria-hidden={copyIndex === 1 ? undefined : "true"}>
+                {experienceAchievements.map((item) => (
+                  <li class="achievement-card">
+                    <span class="achievement-text">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+        </div>
+
+        <button class="achievement-nav achievement-nav-next" type="button" aria-label="Показать следующие достижения" data-achievement-next>
+          <ChevronRight class="size-4" aria-hidden="true" />
+        </button>
+      </div>
     </details>
   </div>
 </section>
+
+<style>
+  .achievements-shell {
+    position: relative;
+  }
+
+  .achievements-carousel {
+    --achievement-gap: 0.75rem;
+    --achievement-size: calc((100cqw - var(--achievement-gap) * 3) / 5);
+    container-type: inline-size;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    cursor: grab;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  }
+
+  .achievements-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .achievements-carousel.is-dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+  }
+
+  .achievements-track {
+    display: flex;
+    gap: var(--achievement-gap);
+    width: max-content;
+  }
+
+  .achievement-nav {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(14, 116, 144, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.92);
+    color: #0e7490;
+    box-shadow: 0 10px 24px rgba(15, 94, 168, 0.12);
+    transform: translateY(-50%);
+    transition:
+      background 150ms ease,
+      color 150ms ease,
+      transform 150ms ease;
+  }
+
+  .achievement-nav:hover {
+    background: #14b8a6;
+    color: #ffffff;
+    transform: translateY(-50%) scale(1.04);
+  }
+
+  .achievement-nav:focus-visible {
+    outline: 3px solid rgba(20, 184, 166, 0.28);
+    outline-offset: 2px;
+  }
+
+  .achievement-nav-prev {
+    left: 0.35rem;
+  }
+
+  .achievement-nav-next {
+    right: 0.35rem;
+  }
+
+  .achievements-set {
+    display: flex;
+    gap: var(--achievement-gap);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .achievement-card {
+    display: flex;
+    aspect-ratio: 2 / 1;
+    width: var(--achievement-size);
+    flex: 0 0 var(--achievement-size);
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid rgba(14, 116, 144, 0.16);
+    border-radius: 0.5rem;
+    background: linear-gradient(145deg, #ffffff 0%, #f7fbfd 100%);
+    padding: 1rem;
+    color: #102033;
+    box-shadow: 0 10px 30px rgba(15, 94, 168, 0.08);
+  }
+
+  .achievement-text {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7;
+    font-size: clamp(0.72rem, 0.78vw, 0.86rem);
+    font-weight: 600;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: 1023px) {
+    .achievements-carousel {
+      --achievement-size: clamp(12rem, 42vw, 16rem);
+    }
+
+    .achievement-text {
+      -webkit-line-clamp: 5;
+      font-size: 0.76rem;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .achievements-carousel {
+      --achievement-size: clamp(13rem, 78vw, 17rem);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+    }
+
+    .achievement-card {
+      padding: 0.85rem;
+    }
+
+    .achievement-nav {
+      width: 1.85rem;
+      height: 1.85rem;
+    }
+
+    .achievement-text {
+      -webkit-line-clamp: 5;
+      font-size: 0.74rem;
+      line-height: 1.4;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .achievements-carousel {
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+  }
+</style>
+
+<script>
+  const carousels = document.querySelectorAll("[data-achievements-carousel]");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const autoScrollSpeed = 100;
+
+  carousels.forEach((carousel) => {
+    const viewport = carousel.querySelector("[data-achievements-viewport]");
+    const track = carousel.querySelector("[data-achievements-track]");
+    const prevButton = carousel.querySelector("[data-achievement-prev]");
+    const nextButton = carousel.querySelector("[data-achievement-next]");
+
+    if (!(viewport instanceof HTMLElement) || !(track instanceof HTMLElement)) {
+      return;
+    }
+
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartScroll = 0;
+    let autoPausedUntil = 0;
+
+    const setWidth = () => track.scrollWidth / 3;
+    const cardStep = () => {
+      const card = track.querySelector(".achievement-card");
+      const styles = getComputedStyle(viewport);
+      const gap = Number.parseFloat(styles.getPropertyValue("--achievement-gap")) || 12;
+
+      return card instanceof HTMLElement ? card.offsetWidth + gap : viewport.clientWidth * 0.8;
+    };
+
+    const normalizeScroll = () => {
+      const width = setWidth();
+
+      if (!width) {
+        return;
+      }
+
+      if (viewport.scrollLeft < width * 0.5) {
+        viewport.scrollLeft += width;
+      } else if (viewport.scrollLeft > width * 1.5) {
+        viewport.scrollLeft -= width;
+      }
+    };
+
+    const pauseAutoScroll = () => {
+      autoPausedUntil = performance.now() + 2200;
+    };
+
+    const scrollCards = (direction) => {
+      pauseAutoScroll();
+      normalizeScroll();
+      viewport.scrollBy({ left: direction * cardStep(), behavior: "auto" });
+    };
+
+    const startInMiddle = () => {
+      viewport.scrollLeft = setWidth();
+    };
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(startInMiddle);
+    });
+    window.addEventListener("load", startInMiddle, { once: true });
+    window.addEventListener("resize", startInMiddle);
+
+    prevButton?.addEventListener("click", () => scrollCards(-1));
+    nextButton?.addEventListener("click", () => scrollCards(1));
+
+    viewport.addEventListener("pointerdown", (event) => {
+      isDragging = true;
+      dragStartX = event.clientX;
+      dragStartScroll = viewport.scrollLeft;
+      pauseAutoScroll();
+      viewport.classList.add("is-dragging");
+      viewport.setPointerCapture(event.pointerId);
+    });
+
+    viewport.addEventListener("pointermove", (event) => {
+      if (!isDragging) {
+        return;
+      }
+
+      viewport.scrollLeft = dragStartScroll - (event.clientX - dragStartX);
+      normalizeScroll();
+    });
+
+    const stopDragging = (event) => {
+      if (!isDragging) {
+        return;
+      }
+
+      isDragging = false;
+      pauseAutoScroll();
+      viewport.classList.remove("is-dragging");
+      if (viewport.hasPointerCapture(event.pointerId)) {
+        viewport.releasePointerCapture(event.pointerId);
+      }
+      normalizeScroll();
+    };
+
+    viewport.addEventListener("pointerup", stopDragging);
+    viewport.addEventListener("pointercancel", stopDragging);
+    viewport.addEventListener("scroll", normalizeScroll);
+
+    if (!reducedMotion) {
+      let lastFrameTime = performance.now();
+
+      const animate = (frameTime) => {
+        const elapsedSeconds = (frameTime - lastFrameTime) / 1000;
+        lastFrameTime = frameTime;
+
+        if (!isDragging && performance.now() > autoPausedUntil) {
+          viewport.scrollLeft += autoScrollSpeed * elapsedSeconds;
+          normalizeScroll();
+        }
+
+        requestAnimationFrame(animate);
+      };
+
+      requestAnimationFrame(animate);
+    }
+  });
+</script>
