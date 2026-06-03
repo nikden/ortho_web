@@ -1,5 +1,5 @@
 ---
-import { contacts, doctor } from "../config";
+import { business, contacts, doctor } from "../config";
 ---
 
 <footer class="border-t border-slate-200 bg-slate-950 py-10 text-white">
@@ -9,6 +9,7 @@ import { contacts, doctor } from "../config";
       <p class="mt-2 max-w-3xl text-sm leading-6 text-slate-300">
         Имеются противопоказания, необходима консультация специалиста. Информация на сайте не является публичной офертой.
       </p>
+      <p class="mt-2 text-sm leading-6 text-slate-400">{business.address.postalCode}, {business.address.addressLocality}, {business.address.streetAddress}</p>
     </div>
     <div class="grid gap-2 text-sm text-slate-300 md:text-right">
       <a class="hover:text-white" href={contacts.phoneHref}>{contacts.phone}</a>

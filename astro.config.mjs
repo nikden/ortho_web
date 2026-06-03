@@ -2,8 +2,7 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: "https://nikden.github.io",
-  base: "/ortho_web",
+  site: "https://makhanovstanislav.ru",
   vite: {
     plugins: [tailwindcss()],
   },

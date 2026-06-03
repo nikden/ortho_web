@@ -1,6 +1,6 @@
 ---
 import { Mail, MessageCircle, Phone, Send } from "@lucide/astro";
-import { contactItems } from "../config";
+import { business, contactItems } from "../config";
 
 const contactIcons = {
   phone: Phone,
@@ -14,6 +14,12 @@ const contactIcons = {
   <div class="container-page">
     <p class="eyebrow">Контакты</p>
     <h2 id="contacts-title" class="section-title">Связаться с доктором</h2>
+
+    <div class="mt-5 rounded-lg border border-slate-200 bg-clinic-soft p-5 text-sm leading-6 text-slate-700">
+      <p><strong>{business.name}</strong></p>
+      <p>{business.address.postalCode}, {business.address.addressLocality}, {business.address.streetAddress}</p>
+      <p>{business.openingHours}. Запись на прием предварительная.</p>
+    </div>
 
     <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
       {contactItems.map((item) => {

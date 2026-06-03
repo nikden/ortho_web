@@ -6,15 +6,18 @@ import ContactsFaq from "../components/ContactsFaq.astro";
 import ExperienceAchievements from "../components/ExperienceAchievements.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import { contacts, doctor, site } from "../config";
+import { business, contacts, doctor, site } from "../config";
 
 const canonicalUrl = site.url;
 const absoluteOgImage = new URL(site.ogImage, site.url).toString();
-const jsonLd = {
+const businessJsonLd = {
   "@context": "https://schema.org",
-  "@type": ["Physician", "MedicalBusiness"],
+  "@type": ["Physician", "Dentist", "MedicalBusiness"],
+  "@id": `${site.url}#doctor`,
   name: doctor.fullName,
-  medicalSpecialty: ["Orthodontics", "OralSurgery"],
+  alternateName: doctor.shortName,
+  jobTitle: doctor.role,
+  medicalSpecialty: ["Dentistry", "OralSurgery", "Implantology"],
   description: site.description,
   url: site.url,
   image: absoluteOgImage,
@@ -23,10 +26,14 @@ const jsonLd = {
   priceRange: "₽₽₽",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "ул. Усачева, 29, корп. 1",
-    addressLocality: "Москва",
-    addressCountry: "RU",
+    ...business.address,
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: business.geo.latitude,
+    longitude: business.geo.longitude,
+  },
+  areaServed: business.areaServed,
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -35,6 +42,13 @@ const jsonLd = {
       closes: "20:00",
     },
   ],
+};
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: business.name,
+  url: site.url,
+  inLanguage: "ru-RU",
 };
 ---
 
@@ -58,7 +72,8 @@ const jsonLd = {
     <meta name="twitter:title" content={site.title} />
     <meta name="twitter:description" content={site.description} />
     <meta name="twitter:image" content={absoluteOgImage} />
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(businessJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
   </head>
   <body>
     <Header />
