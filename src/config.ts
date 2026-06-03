@@ -15,8 +15,8 @@ export const doctor = {
 export const contacts = {
   phone: "+7 926 788-62-96",
   phoneHref: "tel:+79267886296",
-  email: "stas-atas@lalaland.ru",
-  emailHref: "mailto:stas-atas@lalaland.ru",
+  email: "doctormsa@gmail.com",
+  emailHref: "mailto:doctormsa@gmail.com",
   whatsapp: "https://wa.me/79267886296",
   telegram: "https://t.me/makhanovdentist",
   maxMessenger: "https://max.ru/join/80i1BquwUhLi2s6JmfGyZZ97xMCTssZ5NcqqXXAEAvA",
@@ -25,14 +25,14 @@ export const contacts = {
 export const business = {
   name: "Стоматолог-хирург-имплантолог Станислав Маханов",
   address: {
-    streetAddress: "ул. Усачева, 29, корп. 1",
+    streetAddress: "ул. Александра Солженицына, 6А, стр. 1",
     addressLocality: "Москва",
-    postalCode: "119048",
+    postalCode: "109004",
     addressCountry: "RU",
   },
   geo: {
-    latitude: 55.7249,
-    longitude: 37.5685,
+    latitude: 55.742124,
+    longitude: 37.657700,
   },
   areaServed: "Москва",
   openingHours: "Пн-Сб 09:00-20:00",
